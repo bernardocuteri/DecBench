@@ -1,0 +1,8 @@
+First of all it is needed to have a working executable of the Roussel Runsolver tool. Related instructions are explained in the Roussel Runsolver directory.
+
+Now it's time to modify "staticCalls.sh" and eventually "genMakefile.sh" according to your DLV path. DLV system is available on the site: http://www.dlvsystem.com/dlv/#1.
+
+After those two steps, the software core is ready.
+
+The only thing left to configure is the analysis prototype, which is an optional tool in DecBench.
+To do that, it is sufficient to copy the folder perlLibraries/Parse into /usr/lib/perl/"versione"/ . 

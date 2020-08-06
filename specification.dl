@@ -1,0 +1,9 @@
+solver(waspEager, "../run_eager.sh").
+solver(waspPlain, "../plain.sh").
+solver(clingo, "../clingo.sh").
+
+run(D, X) :- solver(X,_), domain(D, _).
+%write down the benchmarks you want to run and their limits (cpu, wall,virtualMemory (in MiB) allowed)
+resourceLimit(D, S, cpu, 600):-run(D,S).
+resourceLimit(D, S, virtualMemory, 2048):-run(D,S).
+

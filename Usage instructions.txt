@@ -1,0 +1,41 @@
+*** DecBench instructions ***
+
+1) Start by configuring "benchmark.dl":
+
+- declare all solvers that are involved in the benchmark session as 
+
+    solver(idSolver, "solver command").
+
+For example:
+
+    solver(dlv, "/usr/bin/dlv.bin -silent -nofacts -n=1").
+    solver(javaExecutable, "java -jar javaExecutable.jar").
+
+- declare all runs (solver + domain) to be executed and possibly any resource limit associated to them:
+
+    run(idSolver, idDomain).
+    resourceLimit(idDomain, idSolver, resource, value)
+
+For example:
+
+    run(threateningQueens, dlv).
+    run(problem1, javaExecutable).
+    resourceLimit(problem1, javaExecutable, cpu, 9).
+    resourceLimit(threateningQueens, dlv, cpu, 6).
+
+The rosource field can assume the following values: cpu (seconds), wall(seconds), virtualMemory(MiB).
+
+
+2) Congifure "workspaceLauncher.sh" by adding customized calls to genDomainEntities.pl, one for each domain in input. (Run "genDomainEntities.pl -h" for more information on this script.)
+
+
+3) Possibly, add some ordering rules on problem instances by using "addOrderingRule.pl".
+
+
+4) Launch "genMakefile.sh" to produce a runnable Makefile. (Set the proper DLV path in the script if "dlv" is not a command in $PATH.)
+
+
+5) If everything is OK, the benchmark will be ready. Just launch it by running the command "./workspaceLauncher.sh".
+
+
+NOTE: workspaceLauncher.sh and genMakefile.sh must have execution permissions.

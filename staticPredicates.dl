@@ -1,0 +1,5 @@
+testcaseCommand(S,D,T,Sc,Dc,Tc) :- solver(S,Sc), domain(D,Dc), run(D,S), testcase(T,D,Tc).
+
+requires(SolverId, DomainId, TestcaseId, SolverId, DomainId, RTestcaseId, Strenght) :- orderRule(SolverId, DomainId, Key, Ordering, Strenght), Ordering = ascending, testcaseData(TestcaseId, DomainId, Key, Value), testcaseData(RTestcaseId, DomainId, Key, RValue), Value>RValue.
+
+requires(SolverId, DomainId, TestcaseId, SolverId, DomainId, RTestcaseId, Strenght) :- orderRule(SolverId, DomainId, Key, Ordering, Strenght), Ordering = descending, testcaseData(TestcaseId, DomainId, Key, Value), testcaseData(RTestcaseId, DomainId, Key, RValue), Value<RValue.

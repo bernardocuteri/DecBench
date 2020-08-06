@@ -1,0 +1,5 @@
+Eseguire lo script bash getVariablePlot.sh con parametri: cartella radice del benchmark, solver, dominio e variabile.
+
+e.g. ./getVariablePlot.sh ../Core/exampleBench dlv threateningQueens dimension
+
+Viene generato un file del tipo dominio_variablie_solver.png contenente il grafico richiesto

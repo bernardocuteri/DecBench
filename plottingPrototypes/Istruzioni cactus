@@ -1,0 +1,7 @@
+Invocare lo script getCactusGraph con parametri: cartella del benchmark, dominio. Salvando l'output su un file.
+Eseguire gnuplot sul file ottenuto.
+
+e.g.: 
+./getCactusGraph.pl ../Core/exampleBench threateningQueens > cactus.plot
+gnuplot cactus.plot
+
